@@ -25,13 +25,13 @@ class TopView:
             if not ret:
                 break
             
-            top_view_frame = self.transform_to_top_view(frame)
+            # top_view_frame = self.transform_to_top_view(frame)
             
             # combined_frame = np.hstack((frame, top_view_frame))
             
             # self.out.write(combined_frame)
             
-            cv2.imshow('frame', top_view_frame)
+            cv2.imshow('frame', frame)
             
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
@@ -64,7 +64,6 @@ class TopView:
         return img_trans
         # plt.imshow(img_trans)
         # plt.show()
-    
 def detect_marker_zero():
     p_dict = aruco.getPredefinedDictionary(aruco.DICT_4X4_50)
     img = cv2.imread('sample_img/m0-photo.jpg')  
@@ -75,4 +74,5 @@ def detect_marker_zero():
     
 if __name__ == "__main__":
     # transform_to_top_view()
-    TopView()
+    top_view = TopView()
+    top_view.convert()
